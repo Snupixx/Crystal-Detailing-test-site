@@ -1,0 +1,889 @@
+/* =========================
+   GRUNDLAGEN
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #080808;
+    color: #f5f5f5;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.navbar {
+    width: 88%;
+    max-width: 1500px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 28px 0;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: 5px;
+}
+
+.logo span,
+.footer-logo span {
+    color: #999;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+}
+
+.nav-links a {
+    font-size: 0.85rem;
+    color: #aaa;
+    transition: color 0.25s ease;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+.nav-button {
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 100px;
+
+    padding: 12px 22px;
+
+    font-size: 0.8rem;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease;
+}
+
+.nav-button:hover {
+    background: white;
+    color: black;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 52px;
+    padding: 0 26px;
+
+    border-radius: 100px;
+
+    font-size: 0.85rem;
+    font-weight: 700;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+}
+
+.button-primary {
+    background: white;
+    color: black;
+}
+
+.button-primary:hover {
+    background: #ddd;
+}
+
+.button-ghost {
+    border: 1px solid rgba(255,255,255,0.25);
+    color: white;
+}
+
+.button-ghost:hover {
+    background: rgba(255,255,255,0.08);
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    padding: 150px 8%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #050505 0%,
+            rgba(5,5,5,0.85) 35%,
+            rgba(5,5,5,0.25) 100%
+        ),
+        url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2200&q=85");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 850px;
+}
+
+.eyebrow {
+    color: #8f8f8f;
+
+    font-size: 0.7rem;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-size: clamp(5rem, 11vw, 11rem);
+
+    line-height: 0.82;
+    letter-spacing: -7px;
+
+    margin-bottom: 40px;
+}
+
+.hero h1 span {
+    color: #777;
+}
+
+.hero-description {
+    max-width: 520px;
+
+    color: #aaa;
+
+    font-size: 1.05rem;
+
+    margin-bottom: 35px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.hero-bottom {
+    position: absolute;
+    z-index: 2;
+
+    bottom: 35px;
+    left: 8%;
+    right: 8%;
+
+    display: flex;
+    justify-content: space-between;
+
+    color: #777;
+
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   SECTION BASICS
+========================= */
+
+section:not(.hero) {
+    padding: 130px 8%;
+}
+
+.section-label {
+    display: flex;
+    gap: 25px;
+
+    color: #666;
+
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+
+    margin-bottom: 70px;
+}
+
+.section-label span:first-child {
+    color: #aaa;
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.intro {
+    background: #f2f2f0;
+    color: #0a0a0a;
+}
+
+.intro .section-label {
+    color: #999;
+}
+
+.intro-content {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+
+    gap: 10%;
+}
+
+.intro h2 {
+    font-size: clamp(3.5rem, 7vw, 7rem);
+    line-height: 0.9;
+    letter-spacing: -4px;
+}
+
+.intro h2 span {
+    color: #999;
+}
+
+.intro-text {
+    align-self: end;
+}
+
+.intro-text p {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   LEISTUNGEN
+========================= */
+
+.services {
+    background: #080808;
+}
+
+.section-heading {
+    margin-bottom: 70px;
+}
+
+.section-heading h2 {
+    font-size: clamp(3rem, 6vw, 6rem);
+    line-height: 0.9;
+    letter-spacing: -3px;
+}
+
+.section-heading h2 span {
+    color: #555;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 18px;
+}
+
+.service-card {
+    min-height: 420px;
+
+    padding: 38px;
+
+    border: 1px solid #202020;
+    border-radius: 4px;
+
+    background: #101010;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    border-color: #444;
+}
+
+.service-large {
+    grid-row: span 2;
+}
+
+.service-number {
+    color: #555;
+    font-size: 0.75rem;
+}
+
+.service-tag {
+    color: #777;
+
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+}
+
+.service-card h3 {
+    max-width: 500px;
+
+    font-size: clamp(2.3rem, 4vw, 4.5rem);
+    line-height: 0.95;
+
+    letter-spacing: -2px;
+
+    margin-bottom: 25px;
+}
+
+.service-card p:not(.service-tag) {
+    max-width: 450px;
+    color: #888;
+}
+
+.service-link {
+    color: white;
+
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    margin-top: 30px;
+}
+
+
+/* =========================
+   STATEMENT
+========================= */
+
+.statement {
+    min-height: 80vh;
+
+    display: flex;
+    align-items: center;
+
+    background: #111;
+}
+
+.statement-inner {
+    max-width: 1000px;
+}
+
+.statement h2 {
+    font-size: clamp(4rem, 9vw, 9rem);
+
+    line-height: 0.85;
+    letter-spacing: -6px;
+
+    margin-bottom: 50px;
+}
+
+.statement-line {
+    width: 100%;
+    height: 1px;
+
+    background: #333;
+
+    margin-bottom: 30px;
+}
+
+.statement p:last-child {
+    max-width: 500px;
+    color: #777;
+}
+
+
+/* =========================
+   PAKETE
+========================= */
+
+.packages {
+    background: #f2f2f0;
+    color: #0a0a0a;
+}
+
+.packages .section-label {
+    color: #999;
+}
+
+.package-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+.package-card {
+    position: relative;
+
+    padding: 40px;
+
+    min-height: 560px;
+
+    border: 1px solid #d8d8d5;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.package-card.featured {
+    background: #0a0a0a;
+    color: white;
+    border-color: #0a0a0a;
+}
+
+.popular {
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    background: white;
+    color: black;
+
+    padding: 8px 15px;
+
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.package-type {
+    color: #888;
+
+    font-size: 0.65rem;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 20px;
+}
+
+.package-card h3 {
+    font-size: 2.2rem;
+    line-height: 1;
+
+    margin-bottom: 25px;
+}
+
+.price {
+    font-size: 3.2rem;
+    font-weight: 800;
+
+    letter-spacing: -2px;
+
+    margin-bottom: 20px;
+}
+
+.price span {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #888;
+}
+
+.package-description {
+    color: #777;
+
+    min-height: 70px;
+
+    margin-bottom: 30px;
+}
+
+.package-card ul {
+    list-style: none;
+
+    margin-bottom: 30px;
+}
+
+.package-card li {
+    color: #666;
+
+    padding: 9px 0;
+
+    border-bottom: 1px solid #ddd;
+
+    font-size: 0.85rem;
+}
+
+.featured li {
+    color: #aaa;
+    border-color: #292929;
+}
+
+.package-card li::before {
+    content: "✓";
+    margin-right: 10px;
+    color: #999;
+}
+
+.package-button {
+    margin-top: auto;
+
+    padding: 15px;
+
+    text-align: center;
+
+    border: 1px solid #ccc;
+
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.featured .package-button {
+    border-color: #444;
+}
+
+.price-note {
+    color: #888;
+    font-size: 0.7rem;
+    margin-top: 20px;
+}
+
+
+/* =========================
+   WHY
+========================= */
+
+.why {
+    background: #080808;
+}
+
+.why-layout {
+    display: grid;
+
+    grid-template-columns: 0.8fr 1.2fr;
+
+    gap: 12%;
+}
+
+.why h2 {
+    font-size: clamp(3.5rem, 7vw, 7rem);
+
+    line-height: 0.85;
+
+    letter-spacing: -5px;
+}
+
+.why-list {
+    border-top: 1px solid #292929;
+}
+
+.why-item {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+
+    gap: 30px;
+
+    padding: 35px 0;
+
+    border-bottom: 1px solid #292929;
+}
+
+.why-item > span {
+    color: #555;
+    font-size: 0.7rem;
+}
+
+.why-item h3 {
+    margin-bottom: 10px;
+}
+
+.why-item p {
+    max-width: 500px;
+    color: #777;
+}
+
+
+/* =========================
+   CTA
+========================= */
+
+.cta {
+    min-height: 80vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #242424 0%,
+            #080808 60%
+        );
+}
+
+.cta-content {
+    max-width: 900px;
+}
+
+.cta h2 {
+    font-size: clamp(4rem, 9vw, 9rem);
+
+    line-height: 0.85;
+
+    letter-spacing: -6px;
+
+    margin-bottom: 35px;
+}
+
+.cta h2 span {
+    color: #555;
+}
+
+.cta-content > p:not(.eyebrow) {
+    color: #777;
+
+    margin-bottom: 30px;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 12px;
+}
+
+
+/* =========================
+   LOCATION
+========================= */
+
+.location {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    padding: 0 !important;
+}
+
+.location-info {
+    padding: 100px 8%;
+}
+
+.location-info h2 {
+    font-size: 5rem;
+    line-height: 0.9;
+
+    margin-bottom: 30px;
+}
+
+.location-info > p:not(.eyebrow) {
+    color: #777;
+}
+
+.opening-hours {
+    margin-top: 30px;
+}
+
+.location-placeholder {
+    min-height: 500px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #181818,
+            #090909
+        );
+
+    color: #444;
+
+    letter-spacing: 5px;
+    font-size: 0.7rem;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 60px 8% 30px;
+
+    background: #050505;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+
+    padding-bottom: 60px;
+
+    border-bottom: 1px solid #222;
+}
+
+.footer-logo {
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: 5px;
+}
+
+.footer-top p {
+    color: #666;
+    font-size: 0.8rem;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+
+    padding-top: 25px;
+
+    color: #444;
+
+    font-size: 0.65rem;
+}
+
+.footer-bottom div {
+    display: flex;
+    gap: 20px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 850px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .navbar {
+        width: 90%;
+    }
+
+    .hero {
+        padding: 130px 7%;
+    }
+
+    .hero h1 {
+        font-size: clamp(4.5rem, 18vw, 7rem);
+        letter-spacing: -4px;
+    }
+
+    .intro-content,
+    .why-layout,
+    .location {
+        grid-template-columns: 1fr;
+    }
+
+    .intro-text {
+        margin-top: 50px;
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-large {
+        grid-row: auto;
+    }
+
+    .package-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .package-card {
+        min-height: auto;
+    }
+
+    .location-placeholder {
+        min-height: 300px;
+    }
+
+    .footer-top,
+    .footer-bottom {
+        flex-direction: column;
+        gap: 25px;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    section:not(.hero) {
+        padding: 90px 7%;
+    }
+
+    .nav-button {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 4.5rem;
+    }
+
+    .service-card {
+        min-height: 350px;
+        padding: 28px;
+    }
+
+    .package-card {
+        padding: 28px;
+    }
+
+    .statement h2,
+    .cta h2 {
+        letter-spacing: -3px;
+    }
+
+    .location-info h2 {
+        font-size: 3.5rem;
+    }
+}
