@@ -24,6 +24,13 @@ a {
     text-decoration: none;
 }
 
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
 img {
     max-width: 100%;
     display: block;
@@ -171,10 +178,16 @@ img {
     background-position: center;
 }
 
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.12);
+    pointer-events: none;
+}
+
 .hero-content {
     position: relative;
     z-index: 2;
-
     max-width: 850px;
 }
 
@@ -267,43 +280,43 @@ section:not(.hero) {
 ========================= */
 
 .intro {
-    background: #f2f2f0;
-    color: #0a0a0a;
-}
-
-.intro .section-label {
-    color: #999;
+    background: #080808;
 }
 
 .intro-content {
     display: grid;
-    grid-template-columns: 1.3fr 0.7fr;
-
+    grid-template-columns: 1.2fr 0.8fr;
     gap: 10%;
 }
 
-.intro h2 {
+.intro-content h2 {
     font-size: clamp(3.5rem, 7vw, 7rem);
-    line-height: 0.9;
-    letter-spacing: -4px;
+    line-height: 0.85;
+    letter-spacing: -5px;
 }
 
-.intro h2 span {
-    color: #999;
+.intro-content h2 span {
+    color: #555;
 }
 
 .intro-text {
+    max-width: 500px;
     align-self: end;
 }
 
 .intro-text p {
-    color: #555;
-    margin-bottom: 20px;
+    color: #777;
+    margin-bottom: 25px;
+}
+
+.intro-text p:first-child {
+    color: #ddd;
+    font-size: 1.1rem;
 }
 
 
 /* =========================
-   LEISTUNGEN
+   SERVICES
 ========================= */
 
 .services {
@@ -377,7 +390,6 @@ section:not(.hero) {
 
     font-size: clamp(2.3rem, 4vw, 4.5rem);
     line-height: 0.95;
-
     letter-spacing: -2px;
 
     margin-bottom: 25px;
@@ -454,10 +466,7 @@ section:not(.hero) {
 
 .package-grid {
     display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
+    grid-template-columns: repeat(3, 1fr);
     gap: 15px;
 }
 
@@ -539,7 +548,6 @@ section:not(.hero) {
 
 .package-card ul {
     list-style: none;
-
     margin-bottom: 30px;
 }
 
@@ -575,10 +583,24 @@ section:not(.hero) {
 
     font-size: 0.75rem;
     font-weight: 700;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease;
+}
+
+.package-button:hover {
+    background: #0a0a0a;
+    color: white;
 }
 
 .featured .package-button {
     border-color: #444;
+}
+
+.featured .package-button:hover {
+    background: white;
+    color: black;
 }
 
 .price-note {
@@ -589,7 +611,7 @@ section:not(.hero) {
 
 
 /* =========================
-   WHY
+   WHY CRYSTAL
 ========================= */
 
 .why {
@@ -643,56 +665,272 @@ section:not(.hero) {
 
 
 /* =========================
-   CTA
+   KONTAKT
 ========================= */
 
-.cta {
-    min-height: 80vh;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
+.contact-section {
     background:
         radial-gradient(
-            circle at center,
-            #242424 0%,
-            #080808 60%
+            circle at top right,
+            #1c1c1c 0%,
+            #080808 55%
         );
 }
 
-.cta-content {
+.contact-heading {
     max-width: 900px;
+    margin-bottom: 80px;
 }
 
-.cta h2 {
+.contact-heading h2 {
     font-size: clamp(4rem, 9vw, 9rem);
 
     line-height: 0.85;
-
     letter-spacing: -6px;
 
     margin-bottom: 35px;
 }
 
-.cta h2 span {
+.contact-heading h2 span {
     color: #555;
 }
 
-.cta-content > p:not(.eyebrow) {
+.contact-heading > p:not(.eyebrow) {
+    max-width: 600px;
     color: #777;
-
-    margin-bottom: 30px;
+    font-size: 1rem;
 }
 
-.cta-buttons {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+.contact-layout {
+    display: grid;
+    grid-template-columns: 0.7fr 1.3fr;
+    gap: 10%;
+    align-items: start;
+}
 
+.contact-info {
+    border-top: 1px solid #292929;
+}
+
+.contact-info-item {
+    padding: 28px 0;
+    border-bottom: 1px solid #292929;
+}
+
+.contact-info-item span {
+    display: block;
+
+    color: #555;
+
+    font-size: 0.65rem;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 10px;
+}
+
+.contact-info-item p,
+.contact-info-item a {
+    color: #aaa;
+}
+
+.contact-info-item a {
+    transition: color 0.2s ease;
+}
+
+.contact-info-item a:hover {
+    color: white;
+}
+
+
+/* =========================
+   FORMULAR
+========================= */
+
+.contact-form {
+    padding: 45px;
+
+    background: #101010;
+
+    border: 1px solid #242424;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+
+    color: #888;
+
+    font-size: 0.7rem;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+
+    margin-bottom: 9px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+
+    border: 1px solid #292929;
+
+    background: #080808;
+    color: #f5f5f5;
+
+    border-radius: 2px;
+
+    padding: 15px 16px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #4f4f4f;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #666;
+    background: #0c0c0c;
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.form-group select {
+    appearance: none;
+    cursor: pointer;
+
+    background-image:
+        linear-gradient(45deg, transparent 50%, #777 50%),
+        linear-gradient(135deg, #777 50%, transparent 50%);
+
+    background-position:
+        calc(100% - 20px) 50%,
+        calc(100% - 14px) 50%;
+
+    background-size:
+        6px 6px,
+        6px 6px;
+
+    background-repeat: no-repeat;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
     gap: 12px;
+
+    color: #666;
+
+    font-size: 0.72rem;
+
+    cursor: pointer;
+
+    margin: 5px 0 25px;
+}
+
+.checkbox-label input {
+    margin-top: 3px;
+    accent-color: white;
+    cursor: pointer;
+}
+
+.checkbox-label span {
+    line-height: 1.5;
+}
+
+.form-submit {
+    width: 100%;
+
+    min-height: 58px;
+
+    border: 0;
+
+    background: white;
+    color: black;
+
+    cursor: pointer;
+
+    font-size: 0.8rem;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 22px;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.form-submit:hover {
+    background: #ddd;
+    transform: translateY(-2px);
+}
+
+.form-submit:disabled {
+    opacity: 0.5;
+    cursor: wait;
+    transform: none;
+}
+
+.form-status {
+    display: none;
+
+    margin-top: 18px;
+    padding: 15px;
+
+    border: 1px solid #292929;
+
+    font-size: 0.8rem;
+}
+
+.form-status.success {
+    display: block;
+    color: #bdbdbd;
+}
+
+.form-status.error {
+    display: block;
+    color: #ff9999;
+}
+
+.hidden-field {
+    position: absolute !important;
+
+    left: -9999px !important;
+
+    width: 1px !important;
+    height: 1px !important;
+
+    overflow: hidden !important;
 }
 
 
@@ -793,6 +1031,10 @@ footer {
     gap: 20px;
 }
 
+.footer-bottom a:hover {
+    color: #aaa;
+}
+
 
 /* =========================
    MOBILE
@@ -819,7 +1061,8 @@ footer {
 
     .intro-content,
     .why-layout,
-    .location {
+    .location,
+    .contact-layout {
         grid-template-columns: 1fr;
     }
 
@@ -843,14 +1086,33 @@ footer {
         min-height: auto;
     }
 
+    .contact-info {
+        order: 2;
+    }
+
+    .contact-form {
+        order: 1;
+    }
+
     .location-placeholder {
         min-height: 300px;
     }
+}
 
-    .footer-top,
-    .footer-bottom {
-        flex-direction: column;
-        gap: 25px;
+
+@media (max-width: 600px) {
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .contact-form {
+        padding: 28px 22px;
+    }
+
+    .contact-heading h2 {
+        letter-spacing: -3px;
     }
 }
 
@@ -885,5 +1147,11 @@ footer {
 
     .location-info h2 {
         font-size: 3.5rem;
+    }
+
+    .footer-top,
+    .footer-bottom {
+        flex-direction: column;
+        gap: 25px;
     }
 }
